@@ -113,18 +113,6 @@ section p{
         radial-gradient(1px 1px at 60% 8%, #fff, transparent);
     animation: twinkle 4s ease-in-out infinite alternate;
 }
-#moon{
-    position: absolute;
-    z-index: -1;
-    top: 8%;
-    right: -60px;
-    width: 220px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle at 38% 38%, #fff6dc, #f0d89a 50%, #d7a94b);
-    box-shadow: 0 0 90px 30px rgba(244, 169, 58, 0.28);
-    opacity: 0.85;
-}
 #badge{
     display: inline-flex;
     align-items: center;
@@ -141,26 +129,31 @@ section p{
 #badge svg{
     border-radius: 3px;
 }
-#s1_1 h1{
-    font-size: clamp(52px, 17vw, 120px);
-    line-height: 0.92;
-    text-transform: uppercase;
+#gamelogo{
+    margin: 0;
 }
-#s1_1 h1 .wd:last-child{
-    color: transparent;
-    -webkit-text-stroke: 1.5px var(--col2);
-}
-.wd{
+#logoimg, #gamelogo img{
     display: block;
+    width: 100%;
+    max-width: 420px;
+    animation: logoin 1s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+#logoimg{
+    aspect-ratio: 16 / 7;
+    border-style: dashed;
+    border-color: var(--col2);
+}
+#gamelogo img{
+    height: auto;
+    filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.6));
+}
+.sr{
+    position: absolute;
+    width: 1px;
+    height: 1px;
     overflow: hidden;
-    padding-bottom: 0.08em;
-}
-.wd i{
-    display: block;
-    font-style: normal;
-    transform: translateY(110%);
-    animation: rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    animation-delay: calc(var(--i) * 120ms + 0.2s);
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 #s1_1 p{
     margin: 22px 0 26px;
@@ -300,6 +293,32 @@ section p{
     flex: 0 0 82%;
     aspect-ratio: 16 / 10;
     scroll-snap-align: center;
+    user-select: none;
+}
+.shot img{
+    pointer-events: none;
+}
+#s3_2.drag{
+    scroll-snap-type: none;
+    cursor: grabbing;
+}
+#arrows{
+    display: none;
+}
+#arrows button{
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    color: var(--col2);
+    background-color: transparent;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.25s, border-color 0.25s;
+}
+#arrows button:hover{
+    background-color: var(--col3);
+    border-color: var(--col2);
 }
 /* section 4 */
 #s4_1{
@@ -337,14 +356,13 @@ section p{
     color: var(--col2);
 }
 /* section 5 */
-#sec5{
-    margin: 70px 20px 0;
+#s5_1{
     padding: 30px 24px 18px;
     border: 1px solid var(--line);
     border-radius: 22px;
     background: radial-gradient(ellipse at 100% 0%, rgba(244, 169, 58, 0.18), transparent 60%), var(--col3);
 }
-#sec5 h2{
+#s5_1 h2{
     font-size: 26px;
 }
 /* section 6 */
@@ -386,7 +404,7 @@ section p{
     color: var(--col4);
 }
 footer{
-    padding: 50px 20px 20px;
+    padding: 50px 20px 110px;
     text-align: center;
     font-size: 13px;
     color: var(--col5);
@@ -429,9 +447,10 @@ footer{
         translate: 0 0;
     }
 }
-@keyframes rise{
-    to{
-        transform: none;
+@keyframes logoin{
+    from{
+        opacity: 0;
+        transform: scale(0.9);
     }
 }
 @keyframes fadeup{
@@ -490,22 +509,28 @@ footer{
         max-width: 380px;
         margin: 0;
     }
-    #moon{
-        right: 10%;
-        width: 340px;
-    }
     #s3_1{
         grid-template-columns: repeat(3, 1fr);
+    }
+    #s3_2{
+        margin: 30px 0 0;
+        padding: 0 0 14px;
+        cursor: grab;
     }
     .shot{
         flex-basis: 46%;
     }
+    #arrows{
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 6px;
+    }
     #s4_1, #s6_1{
         grid-template-columns: 1fr 1fr;
     }
-    #sec5{
-        max-width: 1000px;
-        margin: 110px auto 0;
+    #s5_1{
+        padding: 44px 44px 30px;
     }
     #share{
         width: auto;
@@ -523,8 +548,5 @@ footer{
     }
     .js .reveal{
         opacity: 1;
-    }
-    .wd i{
-        transform: none;
     }
 }

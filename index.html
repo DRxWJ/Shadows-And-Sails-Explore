@@ -28,20 +28,15 @@
     <!-- section 1 : hero -->
     <header id="sec1">
         <div id="sky"></div>
-        <div id="moon"></div>
         <div id="s1_1">
             <div id="badge">
-                <svg viewBox="0 0 60 40" width="24" height="16" aria-hidden="true">
-                    <rect width="60" height="40" fill="#e70013"/>
-                    <circle cx="30" cy="20" r="11" fill="#fff"/>
-                    <circle cx="32.5" cy="20" r="8.5" fill="#e70013"/>
-                    <polygon fill="#fff" points="32,15.5 33.06,18.54 36.28,18.61 33.71,20.56 34.65,23.64 32,21.8 29.35,23.64 30.29,20.56 27.72,18.61 30.94,18.54"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="16px" enable-background="new 0 0 30 20" viewBox="0 0 30 20" id="tunisia-flag"><rect width="30" height="20" fill="#000000"></rect><rect width="28" height="18" x="1" y="1" fill="#e70013"></rect><circle cx="15" cy="10" r="6" fill="#fff"></circle><path fill="#e70013" d="M13,10c0-1.737,1.413-3.15,3.15-3.15c0.791,0,1.505,0.303,2.059,0.785C17.479,6.649,16.318,6,15,6c-2.206,0-4,1.794-4,4s1.794,4,4,4c1.318,0,2.48-0.649,3.209-1.635c-0.554,0.483-1.269,0.785-2.059,0.785C14.413,13.15,13,11.737,13,10z"></path><polygon fill="#e70013" points="16.634 10.577 15.982 11.8 15.782 10.428 14.407 10.167 15.652 9.556 15.468 8.2 16.428 9.176 17.672 8.565 17.038 9.812 18 10.81"></polygon></svg>
                 <span>MADE IN TUNISIA · ISAMM</span>
             </div>
-            <h1>
-                <b class="wd"><i style="--i:0">SHADOWS</i></b>
-                <b class="wd"><i style="--i:1">&amp; SAILS</i></b>
+            <!-- game logo: replace the box below with <img src="./Logos/game-logo.png" alt="Shadows and Sails"> (transparent PNG) -->
+            <h1 id="gamelogo">
+                <span class="sr">Shadows &amp; Sails</span>
+                <span class="ph" id="logoimg">GAME LOGO · PNG</span>
             </h1>
             <p>A third-person action adventure. Play Captain Rattail, a tiny hooded navigator with a huge sea to cross.</p>
             <div id="goto">
@@ -93,6 +88,11 @@
             <div class="ph shot">SCREENSHOT · LANTERN COVE</div>
             <div class="ph shot">SCREENSHOT · SEA CAVE</div>
         </div>
+        <!-- arrows (pc only) -->
+        <div id="arrows">
+            <button id="prev" aria-label="Previous screenshot">←</button>
+            <button id="next" aria-label="Next screenshot">→</button>
+        </div>
     </section>
 
     <!-- section 4 : the team -->
@@ -123,11 +123,13 @@
     </section>
 
     <!-- section 5 : studio -->
-    <section id="sec5" class="reveal">
-        <h3 class="label">THE STUDIO</h3>
-        <h2>RAGNARÖK GAMING STUDIO</h2>
-        <p>Shadows and Sails is made under Ragnarök Gaming Studio, a small creative team passionate about games, storytelling and art.</p>
-        <a class="link" href="index.html">VISIT THE STUDIO →</a>
+    <section id="sec5">
+        <div id="s5_1" class="reveal">
+            <h3 class="label">THE STUDIO</h3>
+            <h2>RAGNARÖK GAMING STUDIO</h2>
+            <p>Shadows and Sails is made under Ragnarök Gaming Studio, a small creative team passionate about games, storytelling and art.</p>
+            <a class="link" href="index.html">VISIT THE STUDIO →</a>
+        </div>
     </section>
 
     <!-- section 6 : socials -->

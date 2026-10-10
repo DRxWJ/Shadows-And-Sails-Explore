@@ -44,6 +44,31 @@ new IntersectionObserver(entries => {
     updateBar();
 }, { threshold: 0.2 }).observe(socials);
 
+// ---------- screenshots slider ----------
+// touch screens scroll natively, on pc the slider can be dragged with the mouse or moved with the arrows
+const slider = document.getElementById('s3_2');
+let dragging = false;
+let startX = 0;
+let startScroll = 0;
+
+slider.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse') return;
+    dragging = true;
+    startX = e.clientX;
+    startScroll = slider.scrollLeft;
+    slider.classList.add('drag');
+});
+addEventListener('pointermove', e => {
+    if (!dragging) return;
+    slider.scrollLeft = startScroll - (e.clientX - startX);
+});
+addEventListener('pointerup', () => {
+    dragging = false;
+    slider.classList.remove('drag');
+});
+document.getElementById('prev').addEventListener('click', () => slider.scrollBy({ left: -slider.clientWidth * 0.5, behavior: 'smooth' }));
+document.getElementById('next').addEventListener('click', () => slider.scrollBy({ left: slider.clientWidth * 0.5, behavior: 'smooth' }));
+
 // ---------- trailer ----------
 // the YouTube player is only loaded when the user taps play (keeps the page light on mobile data)
 play.addEventListener('click', () => {
